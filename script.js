@@ -69,5 +69,55 @@ function refreshAll() {
     loadRuWord();
 }
 
-// Lehe laadimisel kuvatakse kohe esimesed sõnad
-window.onload = refreshAll;
+// Pilditeed taustale lendavate ikoonide jaoks
+const floatingImages = [
+    'images/mark.png',
+    'images/upgrade_army.png',
+    'images/upgrade_fan.png',
+    'images/upgrade_friend.png',
+    'images/upgrade_legend.png',
+    'images/upgrade_meme.png',
+    'images/upgrade_photo.png',
+    'images/upgrade_story.png',
+    'images/upgrade_universe.png'
+];
+
+// Loob ühe lendava pildi elemendi juhuslike parameetritega
+function createFloatingIcon() {
+    const img = document.createElement('img');
+    img.src = floatingImages[Math.floor(Math.random() * floatingImages.length)];
+    img.classList.add('floating-icon');
+
+    // Juhuslik suurus vahemikus 28–56px
+    const size = 28 + Math.random() * 28;
+    img.style.width  = size + 'px';
+    img.style.height = size + 'px';
+
+    // Juhuslik horisontaalne alguspositsioon
+    img.style.left = Math.random() * 100 + 'vw';
+
+    // Juhuslik animatsiooni kestus ja viivitus
+    const duration = 10 + Math.random() * 16;
+    const delay    = Math.random() * 12;
+    img.style.animationDuration = duration + 's';
+    img.style.animationDelay   = '-' + delay + 's';
+
+    // Juhuslik läbipaistvus – taustale jääb tagasihoidlik
+    img.style.opacity = (0.06 + Math.random() * 0.10).toFixed(2);
+
+    document.getElementById('bg-canvas').appendChild(img);
+}
+
+// Käivitab 18 lendavat ikooni taustal
+function initFloatingIcons() {
+    const canvas = document.createElement('div');
+    canvas.id = 'bg-canvas';
+    document.body.prepend(canvas);
+    for (let i = 0; i < 18; i++) createFloatingIcon();
+}
+
+// Lehe laadimisel kuvatakse kohe esimesed sõnad ja käivitatakse taustaanimatsioon
+window.onload = function() {
+    refreshAll();
+    initFloatingIcons();
+};
