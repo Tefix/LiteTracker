@@ -47,7 +47,7 @@ function loadRuWord() {
     document.getElementById("ru-input").dataset.answer = word.et;
 }
 
-// Kontrollib kasutaja sisestatud vastust (case-insensitive)
+// Kontrollib kasutaja sisestatud vastust (case-insensitive, ignoreerib tühikuid)
 function checkAnswer(inputId, resultId) {
     const input = document.getElementById(inputId);
     const result = document.getElementById(resultId);
