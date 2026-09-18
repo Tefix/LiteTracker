@@ -1,4 +1,6 @@
-/* Üldine lehekülje stiil – mobiilisõbralik kujundus */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+/* Üldine lehekülje stiil – tume teemakujundus */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,129 +8,193 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f0f4f8;
-    color: #2d3748;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #e2e2e2;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 16px;
+    padding: 40px 16px;
+    /* Peen ruudustiku taustaefekt */
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
+/* Pealkiri koos helendava efektiga */
 h1 {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    color: #1a365d;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    text-shadow: 0 0 24px rgba(99,179,237,0.5);
+    margin-bottom: 6px;
 }
 
 .subtitle {
-    font-size: 0.9rem;
-    color: #718096;
-    margin-bottom: 28px;
+    font-size: 0.82rem;
+    color: #4a5568;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
 }
 
 /* Tabel kahe veeruga */
 .quiz-table {
     width: 100%;
-    max-width: 820px;
+    max-width: 860px;
     border-collapse: separate;
-    border-spacing: 16px;
+    border-spacing: 20px;
 }
 
+/* Tabeli päis */
 .quiz-table th {
-    background: #2b6cb0;
-    color: #fff;
+    background: #111;
+    color: #63b3ed;
     padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
     text-align: center;
+    border: 1px solid #1e2a3a;
+    text-transform: uppercase;
 }
 
-/* Iga veeru kaart */
+/* Iga veeru kaart – tume paneel */
 .card {
-    background: #fff;
+    background: #111;
     border-radius: 12px;
-    padding: 28px 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 28px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 0 0 1px #1e1e1e, 0 8px 32px rgba(0,0,0,0.6);
     vertical-align: top;
     text-align: center;
+    transition: border-color 0.3s;
 }
 
+.card:hover {
+    border-color: #2d3748;
+}
+
+/* Kuvatav sõna – monoruumifont nagu koodiredaktoris */
 .word-display {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 2rem;
     font-weight: 700;
-    color: #2b6cb0;
-    margin-bottom: 20px;
-    min-height: 48px;
+    color: #63b3ed;
+    margin-bottom: 24px;
+    min-height: 52px;
+    text-shadow: 0 0 16px rgba(99,179,237,0.3);
+    letter-spacing: 0.04em;
 }
 
+/* Sisestusväli */
 input[type="text"] {
     width: 100%;
-    padding: 10px 14px;
-    border: 2px solid #cbd5e0;
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: 11px 16px;
+    background: #0d0d0d;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: #e2e2e2;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input[type="text"]:focus {
-    border-color: #2b6cb0;
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(99,179,237,0.1);
+}
+
+input[type="text"]::placeholder {
+    color: #3a3a3a;
 }
 
 /* Nupud */
 .btn {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 14px;
     padding: 10px 22px;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
 }
 
+/* Kontrolli nupp – sinine ääris */
 .btn-check {
-    background: #2b6cb0;
-    color: #fff;
-    margin-right: 6px;
+    background: transparent;
+    color: #63b3ed;
+    border-color: #63b3ed;
+    margin-right: 8px;
 }
 
-.btn-check:hover { background: #2c5282; }
+.btn-check:hover {
+    background: #63b3ed;
+    color: #0a0a0a;
+}
 
+/* Järgmine nupp – hall ääris */
 .btn-next {
-    background: #e2e8f0;
-    color: #2d3748;
+    background: transparent;
+    color: #4a5568;
+    border-color: #2d2d2d;
 }
 
-.btn-next:hover { background: #cbd5e0; }
+.btn-next:hover {
+    border-color: #4a5568;
+    color: #a0aec0;
+}
 
 /* Tulemuse sõnum */
 .result {
-    margin-top: 14px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    font-weight: 700;
     min-height: 22px;
+    letter-spacing: 0.04em;
 }
 
-.correct { color: #276749; }
-.wrong   { color: #c53030; }
+.correct {
+    color: #68d391;
+    text-shadow: 0 0 10px rgba(104,211,145,0.4);
+}
+
+.wrong {
+    color: #fc8181;
+    text-shadow: 0 0 10px rgba(252,129,129,0.3);
+}
 
 /* Värskenda kõik nupp */
 .refresh-btn {
-    margin-top: 24px;
-    padding: 12px 32px;
-    background: #276749;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
+    margin-top: 28px;
+    padding: 12px 36px;
+    background: transparent;
+    color: #a0aec0;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
 }
 
-.refresh-btn:hover { background: #22543d; }
+.refresh-btn:hover {
+    border-color: #63b3ed;
+    color: #63b3ed;
+    box-shadow: 0 0 16px rgba(99,179,237,0.1);
+}
 
 /* Reageerimine väiksematele ekraanidele */
 @media (max-width: 600px) {
