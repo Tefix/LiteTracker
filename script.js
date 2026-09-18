@@ -1,4 +1,4 @@
-// Hajusrakenduste sõnavara – eesti-vene sõnastik
+// Hajusrakenduste sõnavara – eesti-vene sõnastik (hajusrakenduste terminid)
 const vocabulary = [
     { et: "server", ru: "сервер" },
     { et: "klient", ru: "клиент" },
