@@ -88,8 +88,8 @@ function createFloatingIcon() {
     img.src = floatingImages[Math.floor(Math.random() * floatingImages.length)];
     img.classList.add('floating-icon');
 
-    // Juhuslik suurus vahemikus 28–56px
-    const size = 28 + Math.random() * 28;
+    // Juhuslik suurus vahemikus 55–95px
+    const size = 55 + Math.random() * 40;
     img.style.width  = size + 'px';
     img.style.height = size + 'px';
 
