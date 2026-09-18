@@ -69,6 +69,66 @@ function refreshAll() {
     loadRuWord();
 }
 
+// ── DROPDOWN + FREE INPUT ────────────────────────────────────
+
+// Täidab mõlemad rippmenüüd: eesti ja vene sõnadega
+function initDropdown() {
+    const selEt = document.getElementById('dd-et-select');
+    const selRu = document.getElementById('dd-ru-select');
+
+    vocabulary.forEach(w => {
+        const optEt = document.createElement('option');
+        optEt.value = w.et;
+        optEt.textContent = w.et;
+        selEt.appendChild(optEt);
+
+        const optRu = document.createElement('option');
+        optRu.value = w.ru;
+        optRu.textContent = w.ru;
+        selRu.appendChild(optRu);
+    });
+
+    // Puhastab vastusevälja kui valik muutub
+    selEt.addEventListener('change', () => clearDd('et'));
+    selRu.addEventListener('change', () => clearDd('ru'));
+}
+
+function clearDd(lang) {
+    document.getElementById(`dd-${lang}-input`).value = '';
+    document.getElementById(`dd-${lang}-result`).textContent = '';
+    document.getElementById(`dd-${lang}-result`).className = 'result';
+}
+
+// Kontrollib kasutaja sisestatud tõlget valitud sõna vastu
+// lang='et' → valiti eesti sõna, kontrollitakse vene vastet
+// lang='ru' → valiti vene sõna, kontrollitakse eesti vastet
+function checkDropdown(lang) {
+    const sel    = document.getElementById(`dd-${lang}-select`);
+    const input  = document.getElementById(`dd-${lang}-input`);
+    const result = document.getElementById(`dd-${lang}-result`);
+
+    if (!sel.value) {
+        result.textContent = '! vali esmalt sõna';
+        result.className = 'result wrong';
+        return;
+    }
+
+    const word = lang === 'et'
+        ? vocabulary.find(w => w.et === sel.value)
+        : vocabulary.find(w => w.ru === sel.value);
+
+    const correct     = lang === 'et' ? word.ru : word.et;
+    const userAnswer  = input.value.trim().toLowerCase();
+
+    if (userAnswer === correct.toLowerCase()) {
+        result.textContent = '✓ Õige!';
+        result.className = 'result correct';
+    } else {
+        result.textContent = `✗ Vale! Õige vastus: ${correct}`;
+        result.className = 'result wrong';
+    }
+}
+
 // Pilditeed taustale lendavate ikoonide jaoks
 const floatingImages = [
     'images/mark.png',
@@ -119,5 +179,6 @@ function initFloatingIcons() {
 // Lehe laadimisel kuvatakse kohe esimesed sõnad ja käivitatakse taustaanimatsioon
 window.onload = function() {
     refreshAll();
+    initDropdown();
     initFloatingIcons();
 };

@@ -51,6 +51,36 @@
     <!-- Värskenda nupp laadib mõlemasse veergu uued juhuslikud sõnad -->
     <button class="refresh-btn" onclick="refreshAll()">↺ refresh_all()</button>
 
+    <!-- Teine sektsioon: vali sõna rippmenüüst ja kirjuta tõlge -->
+    <div class="section-label">// mode_2: select &amp; translate</div>
+    <div class="dropdown-wrap">
+
+        <!-- Eesti → Vene dropdown -->
+        <div class="card dropdown-card">
+            <div class="quiz2-title">[ ET → RU ]</div>
+            <select id="dd-et-select">
+                <option value="">-- vali eestikeelne sõna --</option>
+            </select>
+            <input type="text" id="dd-et-input" placeholder="type russian translation..." autocomplete="off">
+            <br>
+            <button class="btn btn-check" onclick="checkDropdown('et')">Kontrolli</button>
+            <div class="result" id="dd-et-result"></div>
+        </div>
+
+        <!-- Vene → Eesti dropdown -->
+        <div class="card dropdown-card">
+            <div class="quiz2-title">[ RU → ET ]</div>
+            <select id="dd-ru-select">
+                <option value="">-- выбери русское слово --</option>
+            </select>
+            <input type="text" id="dd-ru-input" placeholder="type estonian translation..." autocomplete="off">
+            <br>
+            <button class="btn btn-check" onclick="checkDropdown('ru')">Kontrolli</button>
+            <div class="result" id="dd-ru-result"></div>
+        </div>
+
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -234,3 +234,69 @@ input[type="text"]::placeholder {
     .quiz-table th { margin-bottom: 4px; }
     .card { margin-bottom: 16px; }
 }
+
+/* Teise sektsiooni pealkiri */
+.section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #4a5568;
+    letter-spacing: 0.14em;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+/* Dropdown kaardid kõrvuti */
+.dropdown-wrap {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 860px;
+    margin-bottom: 40px;
+}
+
+.dropdown-card {
+    flex: 1;
+    text-align: center;
+}
+
+.quiz2-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #4a5568;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+}
+
+/* Rippmenüü stiil */
+select {
+    width: 100%;
+    padding: 11px 16px;
+    background: #0d0d0d;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: #e2e2e2;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234a5568' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+select:focus {
+    border-color: #63b3ed;
+}
+
+select option {
+    background: #111;
+    color: #e2e2e2;
+}
+
+@media (max-width: 600px) {
+    .dropdown-wrap { flex-direction: column; }
+}
